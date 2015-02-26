@@ -87,9 +87,6 @@ public class Main {
 			}
 		}
 		
-		// close input stream
-		//sc.close();
-		
 		// print generated state diagram to user
 		printGeneratedStateDiagram(first_state, last_state, statesMap);
 		
@@ -143,6 +140,11 @@ public class Main {
 		
 		for (int i = 0; i < statesMap.size() - 1; i++) {
 			State s = statesMap.get(transition);
+			
+			// Quit if user gave a next state that does not exist
+			if (s == null) throw new RuntimeException("[PROGRAM HALTED] You state machines refrences a state that does not exist...");
+			
+			
 			prettyPrint(s);
 			transition = s.getNextState();
 			stateValues[i+1] =  s.getValue().charAt(0);

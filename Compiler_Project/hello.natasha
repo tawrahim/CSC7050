@@ -1,0 +1,7 @@
+; This is a comment
+ifx=1then
+y == 22
+  y := 2 
+else ; this is also another comment
+  y ~ 3
+end
